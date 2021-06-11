@@ -8,10 +8,20 @@ class Translate:
         pass
 
     def translate(self, lang, text, output):
-        if lang == "fr":
+        if output == "fr":
             return "Bonjour"
-        elif lang == "sp":
+        elif output == "sp":
             return "Hola"
+        elif output == "zh":
+            return "你好"
+        elif output == "jp":
+            return "こんにちは"
+        elif output == "ar":
+            return "مرحبا"
+        elif output == "ko":
+            return "안녕하세요"
+        elif output == "hd":
+            return "नमस्ते"
 
 class Item(BaseModel):
     lang : str
