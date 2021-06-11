@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -37,3 +38,6 @@ def translate(item : Item):
     trans  = Translate()
     result = trans.translate(item.lang, item.text, item.output)
     return {"translation" : result}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
