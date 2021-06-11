@@ -7,13 +7,16 @@ class Translate:
     def __init__(self):
         pass
 
-    def translate(self, lang, text):
-        if lang == "en":
+    def translate(self, lang, text, output):
+        if lang == "fr":
             return "Bonjour"
+        elif lang == "sp":
+            return "Hola"
 
 class Item(BaseModel):
     lang : str
     text : str
+    output : str
 
 @app.get("/")
 def read_root():
@@ -22,5 +25,5 @@ def read_root():
 @app.post("/translate")
 def translate(item : Item):
     trans  = Translate()
-    result = trans.translate(item.lang, item.text)
-    return {"lang" : "fr", "translation" : result}
+    result = trans.translate(item.lang, item.text, item.output)
+    return {"translation" : result}
